@@ -1,0 +1,99 @@
+﻿@model MVCLogin.Models.User
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>giriş Yap</title>
+    <style>
+      
+        #login-div{
+            position:absolute;
+            left:40%;
+            top:40%;
+
+          
+            padding: 10px 10px; 
+        }
+        .field-validation-error{
+            color:red;
+        }
+        .t-d{
+            padding: 0.5em;
+        }  
+	
+    </style>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/font-awesome.css" rel="stylesheet" type="te" />
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+    <link href="//fonts.googleapis.com/css?family=Raleway:100i,200,200i,300,400,500,500i,600,700,700i,800,800i" rel="stylesheet">
+    <link href="~/Content/single.css" rel="stylesheet" />
+    <link href="~/Content/style.css" rel="stylesheet" />
+    <link href="~/Content/blog.css" rel="stylesheet" />
+  
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+</head>
+<body >
+ 
+        <div id="login-div">
+
+            <table>
+                <tr>
+                    <td>
+                        <div class="input-group w3_w3layouts">
+                            @using (Html.BeginForm("Authorize", "Login", FormMethod.Post))
+            {
+                                <div class="input-group w3_w3layouts ">
+                                    <span class="input-group-addon" id="basic-addon1"></span>
+                                    @Html.EditorFor(Model => Model.UserName, new { htmlAttributes = new { @class = "form-control", @aria_describedby = "basic-addon1", @placeholder = "Kullanıcı Adı " } })
+
+                                </div>
+                                <div class="input-group w3_w3layouts">
+                                    <span class="input-group-addon" id="basic-addon1"></span>
+                                    @Html.EditorFor(Model => Model.Password, new { htmlAttributes = new { @class = "form-control", @aria_describedby = "basic-addon1", @placeholder = "Parola" } })
+
+                                </div>
+
+
+                                <div class="signin-form">
+                                    <table>
+                                        <tr>
+                                            <td colspan="2"><strong>@Html.DisplayFor(Model => Model.LoginErrorMessage)</strong></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="t-d"><input type="submit" name="name" value="giriş yap" /></td>
+                                            <td class="t-d"><input type="reset" name="name" value="iptal   " /></td>
+                                        </tr>
+                                    </table>
+
+
+
+
+
+                                </div>
+
+
+
+
+                            }
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+ 
+
+
+
+
+
+
+    <script src="~/scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/scripts/jquery.validate.js"></script>
+    <script src="~/scripts/jquery.validate.unobtrusive.js"></script>
+</body>
+</html>
